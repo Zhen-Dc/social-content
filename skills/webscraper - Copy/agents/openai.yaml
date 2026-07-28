@@ -1,0 +1,4 @@
+interface:
+  display_name: "Webscraper"
+  short_description: "Scrape viral stories and build video scripts"
+  default_prompt: "Read skills/webscraper/SKILL.md and run skills/webscraper/scripts/web_scraper.py to find a qualifying viral story, save it, and prepare a video script."

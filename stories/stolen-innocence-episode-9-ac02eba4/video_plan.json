@@ -1,0 +1,28 @@
+{
+  "format": "vertical_9_16",
+  "estimated_duration_seconds": 60,
+  "scenes": [
+    {
+      "slot": "hook",
+      "duration": 5,
+      "visual": "bold text over moody story image"
+    },
+    {
+      "slot": "setup",
+      "duration": 15,
+      "visual": "character/environment visuals"
+    },
+    {
+      "slot": "conflict",
+      "duration": 25,
+      "visual": "fast caption pacing with emotional cutaways"
+    },
+    {
+      "slot": "ending",
+      "duration": 15,
+      "visual": "cliffhanger or comment prompt"
+    }
+  ],
+  "source_title": "Stolen innocence - Episode 9",
+  "source_url": "https://www.ebonystory.com/story/stolen-innocence/episode-9"
+}

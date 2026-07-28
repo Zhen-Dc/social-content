@@ -1,0 +1,6 @@
+interface:
+  display_name: "Social Story Video Maker"
+  short_description: "Picture narration videos from web stories"
+  default_prompt: "Read skills/social-story-video-maker/SKILL.md and use tools/story_video_pipeline.py to turn an authorized story source into a picture-based narration video package."
+policy:
+  allow_implicit_invocation: true

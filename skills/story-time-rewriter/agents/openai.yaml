@@ -1,0 +1,4 @@
+interface:
+  display_name: "Story Time Rewriter"
+  short_description: "Rewrite stories into POV story-time scripts"
+  default_prompt: "Use $story-time-rewriter to rewrite this story into a first-person story-time narration package."

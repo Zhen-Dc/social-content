@@ -1,0 +1,4 @@
+interface:
+  display_name: "ComfyUI Media Generator"
+  short_description: "Generate images, audio, and videos with ComfyUI"
+  default_prompt: "Use $comfyui-media-generator to generate media with the portable ComfyUI setup."

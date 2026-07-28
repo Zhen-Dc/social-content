@@ -1,0 +1,4 @@
+interface:
+  display_name: "Film Director"
+  short_description: "Direct scenes, shotlists, and Seedance prompts"
+  default_prompt: "Use $film-director to direct this scene into a production-ready shot plan and Seedance prompt package."

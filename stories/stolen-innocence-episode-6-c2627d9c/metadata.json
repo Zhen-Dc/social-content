@@ -1,0 +1,24 @@
+{
+  "source_url": "https://www.ebonystory.com/story/stolen-innocence/episode-6",
+  "title": "Stolen innocence - Episode 6",
+  "author": null,
+  "views": 5,
+  "likes": null,
+  "date": null,
+  "eligibility": {
+    "eligible": false,
+    "reasons": [
+      "views_below_threshold",
+      "likes_unknown",
+      "date_unknown"
+    ],
+    "cutoff_date": "2026-04-30",
+    "min_views": 50000,
+    "min_likes": 20000,
+    "months": 2
+  },
+  "verbatim_capture": {
+    "enabled": false,
+    "note": "Full verbatim capture was not enabled; use --verbatim-ok only for owned, licensed, public-domain, or user-provided text."
+  }
+}

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Chatterbox TTS"
+  short_description: "Generate local speech with Chatterbox TTS"
+  default_prompt: "Use $chatterbox-tts to generate narration audio with the local Chatterbox install."

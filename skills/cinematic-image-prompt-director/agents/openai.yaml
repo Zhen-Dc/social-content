@@ -1,0 +1,4 @@
+interface:
+  display_name: "Cinematic Image Prompt Director"
+  short_description: "Craft cinematic image prompts and references"
+  default_prompt: "Use $cinematic-image-prompt-director to turn this scene into detailed image-generation prompts."
