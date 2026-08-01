@@ -1,0 +1,54 @@
+Rewrite package for: Stolen Innocence
+
+Task:
+- Rewrite original script into story-time narration.
+- Preserve the full plot closely. Do not invent a new story.
+- Use first-person POV from the main protagonist when the protagonist is present.
+- For scenes the protagonist did not witness, use a voice-over narration style instead of pretending first-person access.
+- If the protagonist is unclear, choose the most central character by presence, agency, and plot impact.
+- Change every character name throughout the story using name_map.json.
+- Preserve the cultural/origin feel of known names. Use culturally neutral replacements for unclear names.
+- Match the story's emotional tone. Sad stories should sound sad; suspense stories should sound suspenseful.
+- Save only the final rewritten script as edited.txt.
+
+Name map:
+- Mr -> Alex (neutral, neutral)
+- Ameh -> Jordan (neutral, neutral)
+- Canada -> Riley (neutral, neutral)
+- All -> Sam (neutral, neutral)
+- Episode -> Quinn (neutral, neutral)
+- Read -> Avery (neutral, neutral)
+- Scholarships -> Alex 2 (neutral, neutral)
+- International -> Alex 3 (neutral, neutral)
+- Students -> Alex 4 (neutral, neutral)
+- Wants -> Alex 5 (neutral, neutral)
+- Checkout -> Alex 6 (neutral, neutral)
+- Add -> Alex 7 (neutral, neutral)
+- Written -> Alex 8 (neutral, neutral)
+- Ebonystory -> Alex 9 (neutral, neutral)
+- Views -> Alex 10 (neutral, neutral)
+- Likes -> Alex 11 (neutral, neutral)
+- Success -> Alex 12 (neutral, neutral)
+- James -> Alex 13 (neutral, neutral)
+- As -> Alex 14 (neutral, neutral)
+- You -> Alex 15 (neutral, neutral)
+- What -> Alex 16 (neutral, neutral)
+- And -> Alex 17 (neutral, neutral)
+- Please -> Alex 18 (neutral, neutral)
+- Maro -> Alex 19 (neutral, neutral)
+- Sister -> Alex 20 (neutral, neutral)
+- God'spower -> Alex 21 (neutral, neutral)
+- At -> Alex 22 (neutral, neutral)
+- Apparently -> Alex 23 (neutral, neutral)
+- Tell -> Alex 24 (neutral, neutral)
+- Set -> Alex 25 (neutral, neutral)
+- Since -> Alex 26 (neutral, neutral)
+- Mrs -> Alex 27 (neutral, neutral)
+- Edith -> Alex 28 (neutral, neutral)
+- Still -> Alex 29 (neutral, neutral)
+- To -> Alex 30 (neutral, neutral)
+- Jesus -> Alex 31 (neutral, neutral)
+- Six -> Alex 32 (neutral, neutral)
+- Kelvin -> Alex 33 (neutral, neutral)
+- Mother -> Alex 34 (neutral, neutral)
+- Rachel -> Alex 35 (neutral, neutral)

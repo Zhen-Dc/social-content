@@ -1,0 +1,8 @@
+requests
+librosa
+matplotlib
+pillow
+numpy
+
+[animations]
+manim

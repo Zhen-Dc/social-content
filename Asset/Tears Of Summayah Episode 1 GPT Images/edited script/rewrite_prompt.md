@@ -1,0 +1,54 @@
+Rewrite package for: Tears Of Summayah Episode 1 GPT Images
+
+Task:
+- Rewrite original script into story-time narration.
+- Preserve the full plot closely. Do not invent a new story.
+- Use first-person POV from the main protagonist when the protagonist is present.
+- For scenes the protagonist did not witness, use a voice-over narration style instead of pretending first-person access.
+- If the protagonist is unclear, choose the most central character by presence, agency, and plot impact.
+- Change every character name throughout the story using name_map.json.
+- Preserve the cultural/origin feel of known names. Use culturally neutral replacements for unclear names.
+- Match the story's emotional tone. Sad stories should sound sad; suspense stories should sound suspenseful.
+- Save only the final rewritten script as edited.txt.
+
+Name map:
+- Episode -> Alex (neutral, neutral)
+- Stories -> Jordan (neutral, neutral)
+- Summayah -> Riley (neutral, neutral)
+- Sumayyah -> Sam (neutral, neutral)
+- Tears -> Quinn (neutral, neutral)
+- Of -> Avery (neutral, neutral)
+- Trapped -> Alex 2 (neutral, neutral)
+- Mallam -> Alex 3 (neutral, neutral)
+- Yusuf -> Alex 4 (neutral, neutral)
+- Views -> Alex 5 (neutral, neutral)
+- All -> Alex 6 (neutral, neutral)
+- Romance -> Alex 7 (neutral, neutral)
+- By -> Alex 8 (neutral, neutral)
+- Spiritual -> Alex 9 (neutral, neutral)
+- Episodes -> Alex 10 (neutral, neutral)
+- Marriage -> Alex 11 (neutral, neutral)
+- You -> Alex 12 (neutral, neutral)
+- Timi -> Alex 13 (neutral, neutral)
+- Novels -> Alex 14 (neutral, neutral)
+- Hausa -> Alex 15 (neutral, neutral)
+- Abuse -> Alex 16 (neutral, neutral)
+- Mother -> Alex 17 (neutral, neutral)
+- Post -> Alex 18 (neutral, neutral)
+- Browse -> Alex 19 (neutral, neutral)
+- Fiction -> Alex 20 (neutral, neutral)
+- African -> Alex 21 (neutral, neutral)
+- Ebonystory -> Alex 22 (neutral, neutral)
+- See -> Alex 23 (neutral, neutral)
+- What -> Alex 24 (neutral, neutral)
+- Your -> Alex 25 (neutral, neutral)
+- Next -> Alex 26 (neutral, neutral)
+- Signup -> Alex 27 (neutral, neutral)
+- Login -> Alex 28 (neutral, neutral)
+- Home -> Alex 29 (neutral, neutral)
+- Short -> Alex 30 (neutral, neutral)
+- Ongoing -> Alex 31 (neutral, neutral)
+- Action -> Alex 32 (neutral, neutral)
+- Adventure -> Alex 33 (neutral, neutral)
+- Horror -> Alex 34 (neutral, neutral)
+- Introduction -> Alex 35 (neutral, neutral)
