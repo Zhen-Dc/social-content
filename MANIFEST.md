@@ -160,6 +160,7 @@ Hashes use UTF-8 text without a byte-order mark, with CRLF and CR normalized to 
 | `35ebbbf68caec5b4ca34f8cf455b812a8560893c2e4099b2bbd3439eb804501c` | `CLAUDE.md` |
 | `0015c211873f586c35d3e8cb3e0413a7e27e584a4db81f995e99e303fa2ee352` | `episode_1_atheist.txt` |
 | `a7605a3de60ab81fed4292957a12b2e691d1a4ccbb9bb53505da536cfac5364c` | `episode_1_atheist-updated.txt` |
+| `f6b2268994c64fd6c6753286b9a27ee80b283da30517054e31f3fe121378df69` | `RESTORE_ALL.md` |
 | `fbefe3aed4c689a469cb42ebefaef44f2a4a822148d8bcae6dccbfd87e0ee951` | `skills/chatterbox-tts/references/chatterbox-local.md` |
 | `0feef675f70974af7e80743fa5e935a91b4777c50919730ed4d332f10a5b53cb` | `skills/chatterbox-tts/SKILL.md` |
 | `df3f5aa380c65fa8a850885ec59fbe6422735ea49679d1c5f1b7de4a9a050d43` | `skills/chatterbox-tts/SOP.md` |
