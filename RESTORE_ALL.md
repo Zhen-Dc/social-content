@@ -80,9 +80,9 @@ press Enter:
             if (@(Get-ChildItem -LiteralPath $destination -Force).Count -gt 0) {
                 throw "Recovery directory exists but is not a Git repository: $destination"
             }
-            gh repo clone $Slug $destination
+            gh repo clone $Slug $destination -- --depth 1
         } else {
-            gh repo clone $Slug $destination
+            gh repo clone $Slug $destination -- --depth 1
         }
         if ($LASTEXITCODE -ne 0) { throw "Repository sync failed: $Slug" }
         return $destination
