@@ -156,7 +156,7 @@ Hashes use UTF-8 text without a byte-order mark, with CRLF and CR normalized to 
 | `3b29ccc41215561a1afb9e1d5b3617d3e4a1db06ba08e5e44e63ebf708d650e0` | `Asset/Tears Of Summayah Episode 1 V2/TEARS_OF_SUMMAYAH_V2_WORKFLOW_RUNBOOK.md` |
 | `550c8fde3cd47d345c7eded7c9251edc1c9e9951d32b3a4cb21c02c8c65e76ca` | `Asset/Tears Of Summayah Episode 1 V2/v2-restart-analysis.md` |
 | `821d31ba15cb686857a34b72f52e606327dac959914eb0a5ee74f216e99f3e1c` | `Asset/Tears Of Summayah Episode 1 V2/video/hyperframes/README.md` |
-| `eaae62a73ea427d18965d6317004d222afba436a16247f4ae2234c1e3605afb5` | `BACKUP_POLICY.md` |
+| `a325cafc43b2a991df2da814cdcea1a5bf0e72b2f6347ce4e5b59e919d92a213` | `BACKUP_POLICY.md` |
 | `35ebbbf68caec5b4ca34f8cf455b812a8560893c2e4099b2bbd3439eb804501c` | `CLAUDE.md` |
 | `0015c211873f586c35d3e8cb3e0413a7e27e584a4db81f995e99e303fa2ee352` | `episode_1_atheist.txt` |
 | `a7605a3de60ab81fed4292957a12b2e691d1a4ccbb9bb53505da536cfac5364c` | `episode_1_atheist-updated.txt` |
