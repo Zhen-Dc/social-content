@@ -34,6 +34,9 @@ press Enter:
         }
     }
 
+    git config --global core.longpaths true
+    if ($LASTEXITCODE -ne 0) { throw 'Could not enable Git long-path support.' }
+
     gh auth status -h github.com *> $null
     if ($LASTEXITCODE -ne 0) {
         gh auth login -h github.com -p https -w
@@ -41,6 +44,10 @@ press Enter:
     }
 
     $testRoot = $env:RECOVERY_TEST_ROOT
+    if (-not $testRoot) {
+        New-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\FileSystem' `
+            -Name LongPathsEnabled -Value 1 -PropertyType DWord -Force | Out-Null
+    }
     $homeRoot = if ($testRoot) { [IO.Path]::GetFullPath($testRoot) } else { [IO.Path]::GetFullPath($HOME) }
     $repositoryRoot = Join-Path $homeRoot 'Recovery\Repositories'
     New-Item -ItemType Directory -Path $repositoryRoot -Force | Out-Null
