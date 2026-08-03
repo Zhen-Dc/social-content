@@ -1,6 +1,6 @@
 # Restore All Clean-Room Backups
 
-This is the single-command entry point for restoring the four sanitized
+This is the single-command entry point for restoring the five sanitized
 repositories after a clean Windows installation.
 
 ## Prerequisites
@@ -13,9 +13,10 @@ Install these from their official sources first:
 - a fresh Codex installation
 - a fresh official Hermes installation
 
-The command authenticates GitHub interactively if necessary. It never restores
-credentials, executable code, configuration, caches, databases, dependencies,
-models, or media.
+The command authenticates GitHub interactively if necessary. It restores
+reviewed project source and non-secret configuration templates, but never
+restores credentials, compiled executables, caches, databases, dependencies,
+models, or downloadable/generated media.
 
 ## One-Paste Command
 
@@ -57,6 +58,7 @@ press Enter:
     }
 
     $repositories = [ordered]@{
+        'master-project-source-backup' = 'Zhen-Dc/master-project-source-backup'
         'master-hermes-backup' = 'Zhen-Dc/master-hermes-backup'
         'codex-memory-backup'  = 'Zhen-Dc/codex-memory-backup'
         'stan-os'              = 'Zhen-Dc/stan-os'
@@ -90,11 +92,35 @@ press Enter:
         }
     }
 
-    function Test-RecoveryRepository([string]$Root) {
+    function Test-RecoveryRepository([string]$Root, [bool]$AllowProjectSource = $false) {
         $rootFull = [IO.Path]::GetFullPath($Root)
         $payload = @(Get-ChildItem -LiteralPath $rootFull -Recurse -File -Force |
             Where-Object { $_.FullName -notmatch '\\.git(\\|$)' })
-        $badFiles = @($payload | Where-Object { $_.Extension.ToLowerInvariant() -notin @('.md', '.txt') })
+        if ($AllowProjectSource) {
+            $forbiddenExtensions = @(
+                '.exe', '.dll', '.sys', '.msi', '.msix', '.appx', '.com', '.scr',
+                '.cpl', '.so', '.dylib', '.pyd', '.node', '.wasm', '.asar', '.pak',
+                '.bin', '.dat', '.db', '.sqlite', '.sqlite3', '.pyc', '.safetensors',
+                '.ckpt', '.pt', '.pth', '.onnx', '.gguf', '.zip', '.7z', '.rar',
+                '.tar', '.gz', '.bz2', '.xz', '.tgz'
+            )
+            $badFiles = @($payload | Where-Object { $_.Extension.ToLowerInvariant() -in $forbiddenExtensions })
+            foreach ($file in $payload) {
+                $bytes = [IO.File]::ReadAllBytes($file.FullName)
+                if ($bytes.Length -ge 2 -and $bytes[0] -eq 0x4D -and $bytes[1] -eq 0x5A) {
+                    throw "Windows executable signature found in $($file.FullName)"
+                }
+                if ($bytes.Length -ge 4 -and $bytes[0] -eq 0x7F -and $bytes[1] -eq 0x45 -and
+                    $bytes[2] -eq 0x4C -and $bytes[3] -eq 0x46) {
+                    throw "Linux executable signature found in $($file.FullName)"
+                }
+                if ($bytes -contains 0) {
+                    throw "Binary payload found in $($file.FullName)"
+                }
+            }
+        } else {
+            $badFiles = @($payload | Where-Object { $_.Extension.ToLowerInvariant() -notin @('.md', '.txt') })
+        }
         if ($badFiles.Count -gt 0) {
             throw "Forbidden file type found in $rootFull"
         }
@@ -119,7 +145,9 @@ press Enter:
             }
         }
 
-        $payloadWithoutManifest = @($payload | Where-Object { $_.Name -ne 'MANIFEST.md' })
+        $payloadWithoutManifest = @($payload | Where-Object {
+            -not $_.FullName.Equals($manifest, [StringComparison]::OrdinalIgnoreCase)
+        })
         if ($payloadWithoutManifest.Count -ne $entries.Count) {
             throw "Manifest does not cover every payload file in $rootFull"
         }
@@ -142,11 +170,30 @@ press Enter:
         }
     }
 
+    function Copy-ProjectTree([string]$Source, [string]$Destination) {
+        if (-not (Test-Path -LiteralPath $Source)) { return }
+        $sourceFull = [IO.Path]::GetFullPath($Source)
+        $destinationFull = [IO.Path]::GetFullPath($Destination)
+        New-Item -ItemType Directory -Path $destinationFull -Force | Out-Null
+        foreach ($file in @(Get-ChildItem -LiteralPath $sourceFull -Recurse -File -Force)) {
+            $relativePath = $file.FullName.Substring($sourceFull.Length).TrimStart('\')
+            $target = [IO.Path]::GetFullPath((Join-Path $destinationFull $relativePath))
+            if (-not $target.StartsWith($destinationFull + '\', [StringComparison]::OrdinalIgnoreCase)) {
+                throw "Unsafe project restore path: $target"
+            }
+            New-Item -ItemType Directory -Path (Split-Path -Parent $target) -Force | Out-Null
+            Copy-Item -LiteralPath $file.FullName -Destination $target -Force
+        }
+    }
+
     $localRepositories = @{}
     foreach ($entry in $repositories.GetEnumerator()) {
         $localRepositories[$entry.Key] = Sync-RecoveryRepository $entry.Key $entry.Value
-        Test-RecoveryRepository $localRepositories[$entry.Key]
+        Test-RecoveryRepository $localRepositories[$entry.Key] ($entry.Key -eq 'master-project-source-backup')
     }
+
+    $projectTarget = Join-Path $homeRoot 'Master Project'
+    Copy-ProjectTree (Join-Path $localRepositories['master-project-source-backup'] 'master-project') $projectTarget
 
     $codexSource = Join-Path $localRepositories['codex-memory-backup'] 'codex'
     $codexTarget = Join-Path $homeRoot '.codex'
@@ -196,6 +243,7 @@ press Enter:
     Write-Host "Repositories: $repositoryRoot"
     Write-Host "Codex:       $codexTarget"
     Write-Host "Hermes:      $hermesTarget"
+    Write-Host "Projects:    $projectTarget"
     Write-Host "Stan OS:     $(Join-Path $homeRoot 'Master Project\Stan OS\AIS-OS')"
     Write-Host "Social:      $socialTarget"
     Write-Host 'Next: follow setup.md in the Codex and Hermes recovery repositories to reinstall omitted software and credentials.'
@@ -207,6 +255,7 @@ press Enter:
 | Recovery data | Destination |
 |---|---|
 | Repository clones | `%USERPROFILE%\Recovery\Repositories\` |
+| Master Project source | `%USERPROFILE%\Master Project\` |
 | Codex memories | `%USERPROFILE%\.codex\memories\` |
 | Codex personal skill specifications | `%USERPROFILE%\.codex\skills\` |
 | Hermes identity and memories | `\\wsl$\Ubuntu\home\<username>\.hermes\` |
@@ -215,5 +264,6 @@ press Enter:
 | Social Content documentation | `C:\Social Content\` |
 
 The command is rerunnable. Existing repository clones are updated with
-`git pull --ff-only`, and reviewed text files are copied over their designated
-counterparts. It does not delete unrelated files in the destination folders.
+`git pull --ff-only`, and reviewed source/text files are copied over their
+designated counterparts. It does not delete unrelated files in the destination
+folders.
